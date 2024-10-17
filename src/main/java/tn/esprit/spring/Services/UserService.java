@@ -1,10 +1,14 @@
 package tn.esprit.spring.Services;
 
+import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Service;
 import tn.esprit.spring.Entities.User;
 import tn.esprit.spring.Repositories.UserRepository;
 
 import java.util.List;
 
+@Service
+@AllArgsConstructor
 public class UserService implements IUserService {
 
     UserRepository userRepository;
@@ -31,13 +35,13 @@ public class UserService implements IUserService {
 
     @Override
     public User selectById(int id) {
-        //return userRepository.findById(id).get();
+        return userRepository.findById(id).get();
         // ou bien
-        return userRepository.findById(id).orElse(User.builder()
+        /*return userRepository.findById(id).orElse(User.builder()
                                                     .id(0)
                                                     .nom("test")
                                                     .prenom("test")
-                                                    .build());
+                                                    .build());*/
     }
 
     @Override
